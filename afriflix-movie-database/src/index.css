@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Styles */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #ffffff; /* White text */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  background: url('your-header-image.jpg') no-repeat center center fixed; /* Fixed background for full coverage */
+  background-size: cover;
+  height: 100vh; /* Full viewport height */
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #f4d03f; /* Yellow for title */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.header-links {
+  display: flex;
+  gap: 15px;
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Position links at the top-right corner */
+}
+
+.logo-class {
+  width: 80px; /* Adjusted size for logo */
+  position: absolute;
+  top: 10px;
+  left: 10px; /* Position logo in top-left corner */
+}
+
+.nav-link {
+  color: #f4d03f; /* Yellow for links */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #d4af37; /* Slightly darker yellow on hover */
+}
+
+/* Buttons */
+.btn {
+  background-color: #f4d03f; /* Yellow for buttons */
+  color: #1a1a2e; /* Dark blue text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #d4af37; /* Slightly darker yellow on hover */
+}
+
+/* Movie Cards */
+.container {
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #ffffff; /* White text */
+  padding: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #2e2e48; /* Darker shade for cards */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.movie-card img {
+  width: 300px; /* Poster size */
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-card .details {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1; /* Take remaining space */
+}
+
+.movie-card .details h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f4d03f; /* Yellow for title */
+}
+
+.movie-card .details p {
+  font-size: 1rem;
+  color: #d3d3d3; /* Light gray for overview text */
+  margin-top: 1rem;
+  white-space: normal; /* Ensure full text is displayed */
+  overflow: visible;
+}
+
+.movie-card .buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  gap: 10px;
+}
+
+.movie-card .buttons .watch-trailer {
+  background-color: #f4d03f; /* Yellow for trailer button */
+  color: #1a1a2e; /* Dark blue text */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.movie-card .buttons .watch-trailer:hover {
+  background-color: #d4af37; /* Slightly darker yellow */
+}
+
+.movie-card .buttons .full-movie {
+  background-color: #ff4d4d; /* Red for full movie button */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.movie-card .buttons .full-movie:hover {
+  background-color: #cc0000; /* Darker shade of red */
+}
+
+button {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.btn-pagination,
+.btn-back-to-top,
+.btn-watch-trailer,
+.btn-full-movie {
+  background-color: #f4d03f;
+  color: #1a1a2e;
+  margin: 5px;
+}
+.btn-pagination:hover,
+.btn-back-to-top:hover,
+.btn-watch-trailer:hover,
+.btn-full-movie:hover {
+  background-color: #f1c40f;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  background-color: #1a1a2e;
+  padding: 20px;
+  border-radius: 8px;
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Back to Top Button */
+.btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #285D66; /* Deep blue for footer */
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .logo-class {
+    width: 60px; /* Adjust logo size for small screens */
+  }
+
+  .movie-card {
+    flex-direction: column; /* Stack elements for smaller screens */
+  }
+
+  .movie-card img {
+    width: 100%; /* Full width for smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
