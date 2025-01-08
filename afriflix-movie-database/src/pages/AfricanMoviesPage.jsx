@@ -8,6 +8,7 @@ const AfricanMoviesPage = () => {
   const [page, setPage] = useState(1);
   const [trailerKey, setTrailerKey] = useState(null);
   const trailerRef = useRef(null);
+  const backToTopRef = useRef(null);
 
   const fetchAfricanMovies = async (page) => {
     try {
@@ -50,11 +51,17 @@ const AfricanMoviesPage = () => {
     }
   };
 
+  const scrollToTop = () => {
+    if (backToTopRef.current) {
+      backToTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   if (loading) return <p className="text-center text-yellow-400">Loading...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <div className="container mx-auto p-8">
+    <div ref={backToTopRef} className="container mx-auto p-8">
       <h2 className="text-4xl font-bold text-center mb-8 text-yellow-400">African Movies Collection</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {movies.map((movie) => (
@@ -117,18 +124,20 @@ const AfricanMoviesPage = () => {
             <button onClick={() => setTrailerKey(null)} className="close-button">
               &times;
             </button>
-            <iframe
-              width="100%"
-              height="400px"
+ <iframe
+              title="Trailer"
               src={`https://www.youtube.com/embed/${trailerKey}`}
               frameBorder="0"
-              allow="autoplay; encrypted-media"
               allowFullScreen
-              title="Movie Trailer"
+              className="trailer-iframe"
             ></iframe>
           </div>
         </div>
       )}
+
+      <button onClick={scrollToTop} className="btn-back-to-top">
+        Back to Top
+      </button>
     </div>
   );
 };
