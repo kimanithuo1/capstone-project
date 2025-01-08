@@ -1,5 +1,5 @@
 Afriflix Movie Database
-Afriflix is a web application that allows users to explore a vast collection of African movies and TV shows. The platform provides a user-friendly interface to discover, watch trailers, and access full movie details. Below is an overview of the features and how they function.
+Afriflix is a web application that allows users to explore a vast collection of movies with possible addition of African movies and TV shows. The platform provides a user-friendly interface to discover, watch trailers, and access full movie details. Below is an overview of the features and how they function.
 
 Features
 1. Home Page
