@@ -7,22 +7,25 @@ const Header = () => {
   const [movieTitle, setMovieTitle] = useState('');
 
   useEffect(() => {
-    const fetchTrendingMovies = async () => {
+    const fetchBackgroundImage = async () => {
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
+        // Fetch trending movies
+        const trendingMoviesResponse = await axios.get(
+          `https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
         );
-        if (response.data.results.length > 0) {
-          const randomMovie = response.data.results[Math.floor(Math.random() * response.data.results.length)];
-          setBackgroundImage(`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`);
-          setMovieTitle(randomMovie.title);
-        }
+
+        // Select a random movie
+        const randomMovie = trendingMoviesResponse.data.results[Math.floor(Math.random() * trendingMoviesResponse.data.results.length)];
+
+        // Set background image and movie title
+        setBackgroundImage(`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`);
+        setMovieTitle(randomMovie.title);
       } catch (error) {
-        console.error('Error fetching trending movies:', error);
+        console.error('Error fetching background image:', error);
       }
     };
 
-    fetchTrendingMovies();
+    fetchBackgroundImage();
   }, []);
 
   return (
@@ -34,6 +37,7 @@ const Header = () => {
           <nav className="header-links">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About</Link>
+            <Link to="/african-movies" className="nav-link">African Movies</Link>
             <Link to="/movies" className="nav-link">Movie Collections</Link>
             <Link to="/contact" className="btn">Contact Us</Link>
             <Link to="/contact" className="btn">Join Us</Link>
