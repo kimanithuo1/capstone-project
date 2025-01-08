@@ -1,18 +1,26 @@
 import React from "react";
-
-import { useState } from 'react'
-import { Particles } from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import './index.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import MoviesPage from "./pages/MoviesPage";
+import ContactPage from "./pages/ContactPage";
 
 const App = () => {
   return (
-    <div className="app-container">
-      {/* Title */}
-      <div className="app-title">
-        Afriflix Movie Database
+    <Router>
+      <div className="bg-neutral min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
 };
 
