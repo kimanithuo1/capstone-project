@@ -3,37 +3,37 @@ import React from 'react';
 const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Form submitted!');
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    alert(`Thank you for contacting us, ${name}! We will get back to you at ${email} regarding your message: ${message}`);
   };
 
   return (
     <div className="container mx-auto py-16 text-center">
-      <h2 className="text-3xl font-bold">Contact Afriflix</h2>
-      <p className="mt-4 text-lg">Feel free to reach out for any inquiries!</p>
-      <form onSubmit={handleSubmit} className="mt-4">
+      <h2 className="text-3xl font-bold text-yellow-400 mb-8">Contact Afriflix</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
         <input
           type="text"
+          name="name"
           placeholder="Your Name"
           required
-          className="p-2 m-2 border border-gray-300 rounded"
         />
         <input
           type="email"
+          name="email"
           placeholder="Your Email"
           required
-          className="p-2 m-2 border border-gray-300 rounded"
         />
         <textarea
+          name="message"
           placeholder="Your Message"
           required
-          className="p-2 m-2 border border-gray-300 rounded"
-          rows="4"
         />
-        <button type="submit" className="btn mt-4">
-          Send Message
-        </button>
+        <button type="submit">Send Message</button>
       </form>
-      <p className="mt-2">Email: support@afriflix.com</p>
+      <p className="mt-2 text-lg text-gray-300">Email: <a href="mailto:jkimanithuo@gmail.com" className="text-yellow-400">jkimanithuo@gmail.com</a></p>
     </div>
   );
 };
